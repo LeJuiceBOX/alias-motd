@@ -1,4 +1,4 @@
-![alias-motd showing a table of aliases when a new terminal opens](docs/alias-motd-screenshot.png)
+![alias-motd showing a table of aliases when a new terminal opens](docs/alias-motd-screenshot.webp)
 ### Install
 
 1. Download **alias-motd.sh** into your **Downloads** folder (most browsers save there by default).
