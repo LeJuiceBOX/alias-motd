@@ -7,9 +7,12 @@
 bash
 
 ```bash
-if [[ -f ~/Downloads/alias-motd.sh ]]; then
+# Folder where you downloaded alias-motd.sh (use $HOME instead of ~ inside quotes)
+alias_motd_dir="$HOME/Downloads"
+
+if [[ -f "$alias_motd_dir/alias-motd.sh" ]]; then
     mkdir -p ~/.local/bin
-    command mv -f ~/Downloads/alias-motd.sh ~/.local/bin/alias-motd.sh
+    command mv -f "$alias_motd_dir/alias-motd.sh" ~/.local/bin/alias-motd.sh
     chmod +x ~/.local/bin/alias-motd.sh
     command grep -qF 'alias-motd.sh' ~/.bashrc 2>/dev/null || command cat >> ~/.bashrc <<'ALIAS_MOTD_EOF'
 
@@ -21,8 +24,9 @@ ALIAS_MOTD_EOF
     ~/.local/bin/alias-motd.sh
     echo "alias-motd installed. Open a new terminal to see it."
 else
-    echo "Couldn't find ~/Downloads/alias-motd.sh. Download it to your Downloads folder, then paste this again."
+    echo "Couldn't find $alias_motd_dir/alias-motd.sh. Download it there (or change alias_motd_dir), then paste this again."
 fi
+unset alias_motd_dir
 ```
 
 Your alias table prints straight away, and from then on it shows in every new terminal. To update later, download the new version and paste the same block again; it won’t add a second copy of the hook to `~/.bashrc`.
